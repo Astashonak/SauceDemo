@@ -1,0 +1,26 @@
+  /*https://www.saucedemo.com/index.html*/
+driver.findElement(By.cssSelector(".login_logo"));
+driver.findElement(By.cssSelector(".bot_column"));
+driver.findElement(By.id("user-name"));
+driver.findElement(By.id("password"));
+driver.findElement(By.cssSelector(".btn_action"));
+driver.findElements(By.id("login_credentials"));
+driver.findElements(By.cssSelector(".login_password"));
+  /*https://www.saucedemo.com/inventory.html*/
+driver.findElement(By.cssSelector(".app_logo"));
+driver.findElement(By.cssSelector(".bm-burger-button"));
+driver.findElement(By.id("inventory_sidebar_link"));
+driver.findElement(By.id("about_sidebar_link"));
+driver.findElement(By.id("logout_sidebar_link"));
+driver.findElement(By.id("reset_sidebar_link"));
+driver.findElement(By.cssSelector(".bm-cross-button"));
+driver.findElements(By.cssSelector(".product_sort_container"));
+driver.findElement(By.xpath("//*[@id='item_1_img_link']"));
+driver.findElements(By.xpath("//*[@class='btn_primary btn_inventory']"));
+  /*https://www.saucedemo.com/cart.html*/
+driver.findElement(By.cssSelector(".btn_secondary"));
+driver.findElement(By.cssSelector(".btn_action checkout_button"));
+
+
+
+
