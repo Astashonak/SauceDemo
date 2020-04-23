@@ -20,10 +20,11 @@ public class CheckOutPage extends BasePage{
         driver.get(URL);
     }
 
-    public void checkoutYouInformation(String firstName, String lastName, String zipCode){
+    public void checkoutYouInformation(String firstName, String lastName, String myStringZipCode){
+        int zipCode = Integer.parseInt (myStringZipCode);;
         driver.findElement(FIRST_NAME).sendKeys(firstName);
         driver.findElement(LAST_NAME).sendKeys(lastName);
-        driver.findElement(ZIP_POSTAL_CODE).sendKeys(zipCode);
+        driver.findElement(ZIP_POSTAL_CODE).sendKeys(String.valueOf(zipCode));
         driver.findElement(CONTINUE_BUTTON).click();
     }
 }

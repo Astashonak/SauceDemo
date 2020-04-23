@@ -15,4 +15,11 @@ public class SauceDemoTest extends BaseTest{
         checkOutPage.openPage();
         checkOutPage.checkoutYouInformation("Elena", "Astashonak", "110022");
     }
+
+    @Test
+    public void placeholder(){
+        loginPage.openPage();
+        loginPage.placeholderUsername();
+        loginPage.placeholderPassword();
+    }
 }
