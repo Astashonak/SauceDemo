@@ -12,6 +12,7 @@ public class SauceDemoTest extends BaseTest{
         cartPage.openPage();
         cartPage.validateNumberOfProducts(1);
         cartPage.validateProductDetails("Sauce Labs Backpack", 1, 29.99);
-
+        checkOutPage.openPage();
+        checkOutPage.checkoutYouInformation("Elena", "Astashonak", "110022");
     }
 }

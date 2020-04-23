@@ -9,7 +9,6 @@ public class CartPage extends BasePage{
 
     private String productQuantityLocator = "//*[contains(text(),'%s')]/../../..//div[@class='cart_quantity']";
     private String productPriceLocator = "//*[contains(text(),'%s')]/../../..//div[@class='inventory_item_price']";
-
     private static final By CART_ITEM = By.cssSelector(".cart_item");
     private static final String URL = "https://www.saucedemo.com/cart.html";
 

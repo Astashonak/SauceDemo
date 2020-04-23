@@ -6,7 +6,6 @@ import org.openqa.selenium.WebDriver;
 public class ProductsPage extends BasePage {
 
     private static final String ADD_TO_CART_LOCATOR = "//*[text()='%s']/../../..//button";
-
     private static final String URL = "https://www.saucedemo.com/inventory.html";
 
     public ProductsPage(WebDriver driver) {
