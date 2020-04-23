@@ -22,4 +22,11 @@ public class SauceDemoTest extends BaseTest{
         loginPage.placeholderUsername();
         loginPage.placeholderPassword();
     }
+
+    @Test
+    public void sortContainerDefaultOption(){
+        loginPage.openPage();
+        loginPage.login("standard_user", "secret_sauce");
+        productsPage.defaultOptionSortContainer();
+    }
 }
