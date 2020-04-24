@@ -29,4 +29,10 @@ public class SauceDemoTest extends BaseTest{
         loginPage.login("standard_user", "secret_sauce");
         productsPage.defaultOptionSortContainer();
     }
+
+    @Test
+    public void loginWithLockedUserTest(){
+        loginPage.openPage();
+        loginPage.loginWithLockedUser("locked_out_user", "secret_sauce");
+    }
 }
