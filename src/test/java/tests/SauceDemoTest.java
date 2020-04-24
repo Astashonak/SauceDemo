@@ -35,4 +35,11 @@ public class SauceDemoTest extends BaseTest{
         loginPage.openPage();
         loginPage.loginWithLockedUser("locked_out_user", "secret_sauce");
     }
+
+    @Test
+    public void sortContainerByPriceLowToHigh(){
+        loginPage.openPage();
+        loginPage.login("standard_user", "secret_sauce");
+        productsPage.priceLowToHighOptionSortContainer("$7.99");
+    }
 }
