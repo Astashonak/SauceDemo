@@ -40,6 +40,6 @@ public class SauceDemoTest extends BaseTest{
     public void sortContainerByPriceLowToHigh(){
         loginPage.openPage();
         loginPage.login("standard_user", "secret_sauce");
-        productsPage.priceLowToHighOptionSortContainer("$7.99");
+        productsPage.priceLowToHighOptionSortContainer();
     }
 }

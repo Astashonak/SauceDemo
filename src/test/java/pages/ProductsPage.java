@@ -13,7 +13,6 @@ public class ProductsPage extends BasePage {
 
     private String sortOptionByDefault = "az";
     private String sortOptionLowToHighPrice = "lohi";
-    private static final By FIRST_ITEM_AFTER_SORTING = By.xpath("//div[1]/div[@class='pricebar']/div[@class='inventory_item_price']");
 
     public ProductsPage(WebDriver driver) {
         super(driver);
@@ -32,16 +31,10 @@ public class ProductsPage extends BasePage {
         String realSortOption = driver.findElement(SORT_CONTAINER).getAttribute("value");
         Assert.assertEquals(realSortOption, sortOptionByDefault, "Сортировка по default не 'Name (A to Z)'");
     }
-/*не очень понимаю как проверять что товары отсортированы */
-//    public void priceLowToHighOptionSortContainer(){
-//        String newSortOption = driver.findElement(SORT_CONTAINER_LOW_TO_HIGH_PRICE).getAttribute("value");
-//        Assert.assertEquals(newSortOption, sortOptionLowToHighPrice, "Сортировка не по 'Price (low to high)'");
-//   }
 
-    public void priceLowToHighOptionSortContainer(String price){
+    public void priceLowToHighOptionSortContainer(){
         driver.findElement(SORT_CONTAINER_LOW_TO_HIGH_PRICE).click();
-        String lowPrice = driver.findElement(FIRST_ITEM_AFTER_SORTING).getText();
-        Assert.assertEquals(lowPrice, String.valueOf(price),
-                "Первый товар не с наименьшей ценой");
+        String newSortOption = driver.findElement(SORT_CONTAINER).getAttribute("value");
+        Assert.assertEquals(newSortOption, sortOptionLowToHighPrice, "Сортировка не по 'Price (low to high)'");
     }
 }
