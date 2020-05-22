@@ -2,6 +2,7 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 
 public class CartPage extends BasePage{
@@ -17,13 +18,27 @@ public class CartPage extends BasePage{
         super(driver);
     }
 
-    public void openPage() {
-        driver.get(URL);
+
+    public void waitForNumberOfElement(By locator, int numberOfElements) {
+        super.waitForNumberOfElement(locator, numberOfElements);
     }
 
-    public void validateNumberOfProducts(int number){
+    @Override
+    public CartPage openPage() {
+        driver.get(URL);
+        return this;
+    }
+
+    @Override
+    protected CartPage isPageOpen() {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(CHECKOUT_BUTTON));
+        return this;
+    }
+
+    public ProductsPage validateNumberOfProducts(int number){
         Assert.assertEquals(driver.findElements(CART_ITEM).size(), number,
                 "кол-во элементов в корзинен не верное");
+        return new ProductsPage(driver);
     }
 
     public void validateProductDetails(String productName, int quantity, double price){

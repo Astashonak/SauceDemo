@@ -15,8 +15,15 @@ public class CheckOutPage extends BasePage{
         super(driver);
     }
 
-    public void openPage() {
+    @Override
+    public CheckOutPage openPage() {
         driver.get(URL);
+        return this;
+    }
+
+    @Override
+    protected BasePage isPageOpen() {
+        return this;
     }
 
     public void checkoutYouInformation(String firstName, String lastName, String myStringZipCode){

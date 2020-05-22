@@ -1,5 +1,6 @@
 package tests;
 
+import models.User;
 import org.testng.annotations.Test;
 
 public class SauceDemoTest extends BaseTest{
@@ -30,9 +31,20 @@ public class SauceDemoTest extends BaseTest{
         productsPage.defaultOptionSortContainer();
     }
 
+//    System.getProperty("testProp")
+
+//    @Test
+//    public void tryMaven(){
+//        loginPage.openPage();
+//        loginPage.login(System.getProperty("user"), System.getProperty("password"));
+//        productsPage.defaultOptionSortContainer();
+//    }
+
+
     @Test
     public void loginWithLockedUserTest(){
-        loginPage.openPage();
+        loginPage
+                .openPage();
         loginPage.loginWithLockedUser("locked_out_user", "secret_sauce");
     }
 
@@ -41,5 +53,17 @@ public class SauceDemoTest extends BaseTest{
         loginPage.openPage();
         loginPage.login("standard_user", "secret_sauce");
         productsPage.priceLowToHighOptionSortContainer();
+    }
+
+    @Test
+    public void loginTestTwo(){
+        User user = new User("lfdmger", "sjfweiu");
+        loginPageFactory
+                .openPage()
+                .login(user)
+                .addToCart("Sauce Labs Backpack")
+                .addToCart("Sauce Labs Bolt T-Shirt")
+                .clickCart()
+                .validateProductDetails("Sauce Labs Backpack", 1, 3);
     }
 }

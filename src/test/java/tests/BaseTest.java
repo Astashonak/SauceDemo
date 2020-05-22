@@ -15,6 +15,7 @@ public class BaseTest {
     ProductsPage productsPage;
     CartPage cartPage;
     CheckOutPage checkOutPage;
+    LoginPageFactory loginPageFactory;
 
     @BeforeMethod
     public void setUp() {
@@ -25,6 +26,7 @@ public class BaseTest {
         productsPage = new ProductsPage(driver);
         cartPage = new CartPage(driver);
         checkOutPage = new CheckOutPage(driver);
+        loginPageFactory = new LoginPageFactory(driver);
     }
 
     @AfterMethod(alwaysRun=true)

@@ -3,6 +3,7 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 
 public class LoginPage extends BasePage {
@@ -20,7 +21,15 @@ public class LoginPage extends BasePage {
         super(driver);
     }
 
-    public void openPage(){ driver.get(LOGIN_URL); }
+    @Override
+    public LoginPage openPage(){ driver.get(LOGIN_URL);
+        return this;}
+
+    @Override
+    protected LoginPage isPageOpen() {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(LOGIN_BUTTON));
+        return this;
+    }
 
     public void login(String userName, String password){
         driver.findElement(USER_NAME).sendKeys(userName);
