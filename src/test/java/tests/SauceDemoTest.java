@@ -62,7 +62,7 @@ public class SauceDemoTest extends BaseTest{
                 .openPage()
                 .login(user)
                 .addToCart("Sauce Labs Backpack")
-//                .addToCart("Sauce Labs Bolt T-Shirt")
+                .addToCart("Sauce Labs Bolt T-Shirt")
                 .clickCart()
                 .validateProductDetails("Sauce Labs Backpack", 1, 3);
     }
