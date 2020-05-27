@@ -5,10 +5,10 @@ import org.testng.annotations.Test;
 
 public class SauceDemoTest extends BaseTest{
 
-    @Test
+    @Test(description = "Тест на проверку количества продуктов и их деталей")
     public void loginTest(){
-        loginPage.openPage();
-        loginPage.login("standard_user", "secret_sauce");
+        steps.openPage();
+        steps.login("standard_user", "secret_sauce");
         productsPage.addToCart("Sauce Labs Backpack");
         cartPage.openPage();
         cartPage.validateNumberOfProducts(1);
@@ -17,17 +17,17 @@ public class SauceDemoTest extends BaseTest{
         checkOutPage.checkoutYouInformation("Elena", "Astashonak", "110022");
     }
 
-    @Test
-    public void placeholder(){
-        loginPage.openPage();
-        loginPage.placeholderUsername();
-        loginPage.placeholderPassword();
+    @Test(description = "Проверка наличия  placeholder при регистрации")
+    public void placeholderShouldExist(){
+        steps.openPage();
+        steps.validatePlaceholderForUserName();
+        steps.validatePlaceholderPassword();
     }
 
-    @Test
+    @Test(description = "Проверка Default опции сортировки")
     public void sortContainerDefaultOption(){
-        loginPage.openPage();
-        loginPage.login("standard_user", "secret_sauce");
+        steps.openPage();
+        steps.login("standard_user", "secret_sauce");
         productsPage.defaultOptionSortContainer();
     }
 
@@ -41,29 +41,28 @@ public class SauceDemoTest extends BaseTest{
 //    }
 
 
-    @Test
+    @Test(description = "Проверка сообщения об ошибке при регистрации LockedUser")
     public void loginWithLockedUserTest(){
-        loginPage
+        steps
                 .openPage();
-        loginPage.loginWithLockedUser("locked_out_user", "secret_sauce");
+        steps.loginWithLockedUser("locked_out_user", "secret_sauce");
     }
 
-    @Test
+    @Test(description = "Проверка сортировка продуктов по 'Price (low to high)'")
     public void sortContainerByPriceLowToHigh(){
-        loginPage.openPage();
-        loginPage.login("standard_user", "secret_sauce");
-        productsPage.priceLowToHighOptionSortContainer();
+        steps.openPage();
+        steps.login("standard_user", "secret_sauce");
+        productsPage.priceLowToHighOptionSortContainer("lohi");
     }
 
-    @Test
+    @Test(description = "Тест на проверку деталей продукта")
     public void loginTestTwo(){
-        User user = new User("lfdmger", "sjfweiu");
+        User user = new User("standard_user", "secret_sauce");
         loginPageFactory
                 .openPage()
                 .login(user)
                 .addToCart("Sauce Labs Backpack")
-                .addToCart("Sauce Labs Bolt T-Shirt")
                 .clickCart()
-                .validateProductDetails("Sauce Labs Backpack", 1, 3);
+                .validateProductDetails("Sauce Labs Backpack", 1, 29.99);
     }
 }

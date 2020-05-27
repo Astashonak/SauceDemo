@@ -2,7 +2,6 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 
 public class ProductsPage extends BasePage {
@@ -15,7 +14,7 @@ public class ProductsPage extends BasePage {
     private static final String CART_CSS = ".shopping_cart_link";
 
     private String sortOptionByDefault = "az";
-    private String sortOptionLowToHighPrice = "lohi";
+
 
     public ProductsPage(WebDriver driver) {
         super(driver);
@@ -47,10 +46,10 @@ public class ProductsPage extends BasePage {
         Assert.assertEquals(realSortOption, sortOptionByDefault, "Сортировка по default не 'Name (A to Z)'");
     }
 
-    public void priceLowToHighOptionSortContainer(){
+    public void priceLowToHighOptionSortContainer(String sortOption){
         driver.findElement(SORT_CONTAINER_LOW_TO_HIGH_PRICE).click();
         String newSortOption = driver.findElement(SORT_CONTAINER).getAttribute("value");
-        Assert.assertEquals(newSortOption, sortOptionLowToHighPrice, "Сортировка не по 'Price (low to high)'");
+        Assert.assertEquals(newSortOption, sortOption, "Сортировка не по 'Price (low to high)'");
     }
 
     public CartPage clickCart() {

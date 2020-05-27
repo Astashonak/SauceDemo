@@ -37,12 +37,12 @@ public class LoginPage extends BasePage {
         driver.findElement(LOGIN_BUTTON).click();
     }
 
-    public void placeholderUsername(){
+    public void validatePlaceholderForUserName(){
         String realUsernamePlaceholder = driver.findElement(USER_NAME).getAttribute("placeholder");
         Assert.assertEquals(realUsernamePlaceholder, usernamePlaceholder, "Placeholder username не совпадает");
     }
 
-    public void placeholderPassword(){
+    public void validatePlaceholderPassword(){
         String realPasswordPlaceholder = driver.findElement(PASSWORD_INPUT).getAttribute("placeholder");
         Assert.assertEquals(realPasswordPlaceholder, passwordPlaceholder, "Placeholder password не совпадает");
     }
