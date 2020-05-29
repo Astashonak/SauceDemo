@@ -21,7 +21,7 @@ public class BaseTest {
 
     public WebDriver driver;
     protected LoginSteps steps;
-//    LoginPage loginPage;
+
     ProductsPage productsPage;
     CartPage cartPage;
     CheckOutPage checkOutPage;
@@ -33,7 +33,7 @@ public class BaseTest {
         driver = new ChromeDriver(CapabilitiesGenerator.getChromeOptions());
         steps = new LoginSteps(driver);
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-//        loginPage = new LoginPage(driver);
+
         productsPage = new ProductsPage(driver);
         cartPage = new CartPage(driver);
         checkOutPage = new CheckOutPage(driver);
