@@ -1,11 +1,12 @@
 package pages;
 
-
+import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 
+@Log4j2
 public class LoginPage extends BasePage {
     private static final By USER_NAME = By.id("user-name");
     private static final By PASSWORD_INPUT = By.id("password");
@@ -32,13 +33,16 @@ public class LoginPage extends BasePage {
     }
 
     public void login(String userName, String password){
+
         driver.findElement(USER_NAME).sendKeys(userName);
         driver.findElement(PASSWORD_INPUT).sendKeys(password);
         driver.findElement(LOGIN_BUTTON).click();
     }
 
     public void validatePlaceholderForUserName(){
+
         String realUsernamePlaceholder = driver.findElement(USER_NAME).getAttribute("placeholder");
+
         Assert.assertEquals(realUsernamePlaceholder, usernamePlaceholder, "Placeholder username не совпадает");
     }
 
